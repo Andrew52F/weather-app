@@ -1,0 +1,20 @@
+$themes: (
+    light: (
+        background: #f5f5f5,
+        foreground: #eaecef,
+        border-active: #0395ff,
+        border: #dce0e3,
+        accent: #0395ff,
+        text: #202b3b,
+        text-secondary: #9399a2,
+    ),
+    dark: (
+        background: #0a131e,
+        foreground: #202b3b,
+        border-active: #0561a5,
+        border: #35455e,
+        accent: #0395ff,
+        text: #fff,
+        text-secondary: #9399a2,
+    )
+);
