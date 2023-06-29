@@ -1,7 +1,18 @@
 import React, {
   createContext, useState, useEffect, useContext, useMemo,
 } from 'react';
-import { ProviderProps, ActualTheme, ThemeContextProps } from '../types/hooks/useTheme';
+
+export interface ProviderProps {
+  children: React.ReactElement;
+}
+
+export type ActualTheme = 'light' | 'dark';
+
+export interface ThemeContextProps {
+  theme: ActualTheme;
+  themes: ActualTheme[];
+  setTheme: (theme: ActualTheme) => void;
+}
 
 export const ThemeContext = createContext<ThemeContextProps>({
   theme: 'light',
@@ -14,7 +25,7 @@ export const useThemeContext = () => {
 
   useEffect(() => {
     document.body.classList.value = '';
-    document.body.classList.add(`theme-${context.theme}`);
+    document.body.classList.add(`theme_${context.theme}`);
   }, [context.theme]);
 
   return context;

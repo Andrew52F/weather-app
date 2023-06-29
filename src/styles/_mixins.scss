@@ -1,3 +1,4 @@
+@import "./themes.scss";
 /**
  * theme-aware - Change color of a css property based on the currently active theme
  *
@@ -9,8 +10,8 @@
  */
  @mixin theme-aware($key, $color) {
   @each $theme-name, $theme-color in $themes {
-      .theme-#{$theme-name} & {
+      :global(.theme_#{$theme-name}) & {
           #{$key}: map-get(map-get($themes, $theme-name), $color)
       }
+    }
   }
-}

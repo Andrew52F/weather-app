@@ -1,6 +1,6 @@
-@import '../../../styles/index.scss';
+@import '@styles/index.scss';
 
-button {
+.button {
   @include theme-aware('background', 'accent');
   @include theme-aware('color', 'text');
   padding: 15px 35px;

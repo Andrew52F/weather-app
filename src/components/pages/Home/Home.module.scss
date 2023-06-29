@@ -1,6 +1,8 @@
-@import '../../styles/index.scss';
+@import '@styles/index.scss';
 
 .main {
+  @include theme-aware('background', 'background');
+  @include theme-aware('color', 'text');
   transition: background-color 0.5s ease ;
   display: flex;
   align-items: stretch;
@@ -16,6 +18,12 @@
     gap: 50px;
   }
 }
+.theme_dark .main {
+  background-color: black
+}
+.theme_light .main {
+  background-color: white
+}
 
 #card {
   @include theme-aware('background', 'foreground');
@@ -29,8 +37,9 @@
 
 #umbrella {
   width: 70%;
+  max-width: 400px;
 }
-#small-umbrella {
+#small_umbrella {
   width: 70px;
 }
 .heading {

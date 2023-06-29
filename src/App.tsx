@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/Home/Home';
+import HomePage from './components/pages/Home/Home';
 import LocalizationProvider from './localization';
-import { ThemeProvider } from './hooks/useTheme';
+import { ThemeProvider } from './contexts/useTheme';
 
 const App = () => (
   <ThemeProvider>
