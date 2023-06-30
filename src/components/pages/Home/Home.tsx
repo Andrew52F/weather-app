@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={`${styles.main}`}>
+    <div className={`${styles.main}`} data-testid='Home'>
       <div className={styles.section} id={styles.card}>
         <img src={umbrellaImage} id={styles.umbrella} alt='umbrella' />
       </div>

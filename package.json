@@ -28,8 +28,12 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "story": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "component": "npx generate-react-cli component",
+    "page": "npx generate-react-cli component --type=page",
+    "layout": "npx generate-react-cli component --type=layout",
+    "ui": "npx generate-react-cli component --type=ui"
   },
   "eslintConfig": {
     "extends": [
@@ -51,8 +55,17 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
+    "@storybook/addon-essentials": "^7.0.24",
+    "@storybook/addon-interactions": "^7.0.24",
+    "@storybook/addon-links": "^7.0.24",
+    "@storybook/blocks": "^7.0.24",
+    "@storybook/preset-create-react-app": "^7.0.24",
+    "@storybook/react": "^7.0.24",
+    "@storybook/react-webpack5": "^7.0.24",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.43.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -60,6 +73,11 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "react-app-alias": "^2.2.2"
+    "eslint-plugin-storybook": "^0.6.12",
+    "generate-react-cli": "^8.3.0",
+    "prop-types": "^15.8.1",
+    "react-app-alias": "^2.2.2",
+    "storybook": "^7.0.24",
+    "webpack": "^5.88.1"
   }
 }
