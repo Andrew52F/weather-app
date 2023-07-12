@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import './mixins.scss';
 @import './reset.scss';
+@import './constants.scss';
 
 .main {
   @include theme-aware('background', 'background');
@@ -15,4 +16,22 @@ body {
     font-size: large;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.theme_light {
+  $background: #f5f5f5;
+  $foreground: #eaecef;
+  $border-active: #0395ff;
+  $border: #dce0e3;
+  $accent: #0395ff;
+  $text: #202b3b;
+  $text-secondary: #9399a2;
+}
+.theme_dark {
+  $background: #0a131e;
+  $foreground: #202b3b;
+  $border-active: #0561a5;
+  $border: #35455e;
+  $accent: #0395ff;
+  $text: #fff;
+  $text-secondary: #9399a2;
 }

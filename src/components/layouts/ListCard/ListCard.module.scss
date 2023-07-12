@@ -1,0 +1,148 @@
+@import '@styles/index.scss';
+
+.ListCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  max-height: 100%;
+}
+.direction_column {
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    @include theme-aware('color', 'text-secondary');
+  font-size: $font-small;
+  font-weight: 600;
+  }
+
+}
+.shadows {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  &.cursor_grab .content {
+    cursor: grab;
+  }
+}
+.content {
+  display: flex;
+  max-height: 100%;
+  overflow: scroll;
+
+  &.direction_column {
+    padding-right: 20px;
+  }
+  &.direction_row {
+    padding-bottom: 20px;
+  }
+  &.direction_column > div {
+    border-bottom: 2px solid;
+    @include theme-aware('border-color', 'text-secondary');
+    &:last-child {
+      border: 0
+    }
+  } 
+   &.direction_row > div {
+    border-right: 2px solid;
+    @include theme-aware('border-color', 'text-secondary');
+    &:last-child {
+      border: 0
+    }
+  } 
+
+  &.direction_column {
+    &::before {
+      content: '';
+      @include theme-fade-gradient('background', 'start', 'col');
+      .bg_foreground > * > & {
+        @include theme-fade-gradient('foreground', 'start', 'col');
+      }
+      user-select: none;
+      position: absolute;
+      display: block;
+      height: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    &.start_shadow::before {
+      opacity: 1;
+    }
+    &::after {
+      content: '';
+      @include theme-fade-gradient('background', 'end', 'col');
+      .bg_foreground > * > & {
+        @include theme-fade-gradient('foreground', 'end', 'col');
+      }
+      user-select: none;
+      position: absolute;
+      display: block;
+      height: 30px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  &.end_shadow::after {
+    opacity: 1;
+  }
+  }
+
+  &.direction_row {
+    &::before {
+      content: '';
+      @include theme-fade-gradient('background', 'start', 'row');
+      .bg_foreground > * > & {
+        @include theme-fade-gradient('foreground', 'start', 'row');
+      }
+      user-select: none;
+      position: absolute;
+      display: block;
+      width: 30px;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+    &.start_shadow::before {
+      opacity: 1;
+    }
+
+    &::after {
+      content: '';
+      @include theme-fade-gradient('background', 'end', 'row');
+      .bg_foreground > * > & {
+        @include theme-fade-gradient('foreground', 'end', 'row');
+      }
+      user-select: none;
+      position: absolute;
+      display: block;
+      width: 30px;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+  &.end_shadow::after {
+    opacity: 1;
+  }
+  }
+  &.p_0 {
+    padding: 0;
+  }
+}

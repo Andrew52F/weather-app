@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import i18n from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -16,7 +16,10 @@ const LocalizationProvider: React.FC<ProviderProps> = ({ children }) => {
       fallbackLng: 'en',
       resources,
     });
-
+  useEffect(() => {
+    document.querySelector('html')?.setAttribute('lang', i18n.language);
+    i18n.on('languageChanged', (lng) => { document.documentElement.setAttribute('lang', lng); });
+  }, []);
   return (
     <I18nextProvider i18n={i18n}>
       {children && children }

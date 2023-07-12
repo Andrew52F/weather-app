@@ -1,0 +1,38 @@
+@import '@styles/index.scss';
+
+.DayForecastItem {
+  @include theme-aware('color', 'text-secondary');
+  display: flex;
+  flex-direction: column;
+  font-size: $font-small;
+  padding: 15px 0;
+  gap: 10px;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .condition {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    span {
+      font-size: $font-small;
+    }
+  }
+  .text {
+    .day {
+      @include theme-aware('color', 'text');
+      font-size: $font-medium;
+    }
+    .temps {
+      font-size: $font-small;
+      span {
+        font-size: $font-small;
+        @include theme-aware('color', 'text');
+      }
+    }
+  }
+}

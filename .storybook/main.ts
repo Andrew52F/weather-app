@@ -28,7 +28,10 @@ const config: StorybookConfig = {
       '@contexts': path.resolve(__dirname, "../src/contexts"),
       '@types': path.resolve(__dirname, "../src/types"),
       '@assets': path.resolve(__dirname, "../src/assets"),
-      '@localization': path.resolve(__dirname, "../src/localization")
+      '@localization': path.resolve(__dirname, "../src/localization"),
+      '@utils': path.resolve(__dirname, "../src/utils"),
+      '@store': path.resolve(__dirname, "../src/store"),
+      '@hooks': path.resolve(__dirname, "../src/hooks")
     };
     return config;
   }

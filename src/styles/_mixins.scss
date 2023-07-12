@@ -15,3 +15,32 @@
       }
     }
   }
+
+  // background: linear-gradient(90deg, #202b3b 0%, rgba(0, 0, 0, 0) 100%);
+  // background-image: linear-gradient("row, gradient-colors");
+  // background-image: linear-gradient("90deg, dark 0%, transparent 100%");
+  // background-image: linear-gradient(90deg, dark 0%, transparent 100%);
+
+  // background-image: reference linear-gradient(90deg, #202b3b 0%, rgba(0, 0, 0, 0) 100%);
+  @mixin theme-fade_gradient($theme-color-name, $side, $direction) {
+    $gradient-direction: '';
+    @if $direction == 'row' {
+      $gradient-direction: 90deg;
+    } @else if $direction == 'col' {
+      $gradient-direction: 180deg;
+    } 
+    @each $theme-name, $theme-color in $themes {
+      $gradient-colors: '';
+      $color-value: map-get(map-get($themes, $theme-name), $theme-color-name);
+      @if $side == 'start' {
+        $gradient-colors: '#{$color-value} 0%, transparent 100%';
+      } @else if $side == 'end' {
+        $gradient-colors: 'transparent 0%, #{$color-value} 100%';
+      }
+      $gradient: #{$gradient-direction}, #{$gradient-colors};
+
+      :global(.theme_#{$theme-name}) & {
+        background-image: linear-gradient($gradient);
+      }
+    }
+  }

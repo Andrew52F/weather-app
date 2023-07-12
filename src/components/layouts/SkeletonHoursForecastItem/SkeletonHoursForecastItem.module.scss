@@ -1,0 +1,22 @@
+@import '@styles/index.scss';
+
+.SkeletonHoursForecastItem {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 0 0 110px;
+  align-items: center;
+  padding: 0 10px;
+  .time {
+    height: $font-small;
+    width: 70px;
+  }
+  .image {
+    height: 70px;
+    width: 70px;
+  }
+  .temp {
+    height: $font-medium;
+    width: 70px;
+  }
+}

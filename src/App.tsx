@@ -1,22 +1,60 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './components/pages/Home/Home';
-import LocalizationProvider from './localization';
-import { ThemeProvider } from './contexts/useTheme';
+import { Provider as StoreProvider } from 'react-redux';
+import Home from '@pages/Home/Home';
+import Weather from '@pages/Weather/Weather';
+import { setupStore } from '@store/index';
+import LocalizationProvider from '@localization/index';
+import PageLayout from '@layouts/PageLayout/PageLayout';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import { ThemeProvider, useThemeContext } from './contexts/useTheme';
+
+const store = setupStore();
+
+interface SkeletonProViderProps {
+  children: React.ReactNode;
+}
+const SkeletonProvider: FC<SkeletonProViderProps> = ({ children }) => {
+  const { theme } = useThemeContext();
+  const options = {
+    light: {
+      baseColor: '#9399a2',
+      highlightColor: '#fff',
+    },
+    dark: {
+      baseColor: '#202b3b',
+      highlightColor: '#9399a2',
+    },
+  };
+  return (
+    <SkeletonTheme
+      baseColor={options[theme].baseColor}
+      highlightColor={options[theme].highlightColor}
+    >
+      {children}
+    </SkeletonTheme>
+  );
+};
 
 const App = () => (
   <ThemeProvider>
-    <LocalizationProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/weather/:location' element='Weather' />
-          <Route path='/search' element='Search' />
-          <Route path='/map' element='Map' />
-          <Route path='/settings' element='Settings' />
-        </Routes>
-      </BrowserRouter>
-    </LocalizationProvider>
+    <SkeletonProvider>
+      <StoreProvider store={store}>
+        <LocalizationProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route element={<PageLayout />}>
+                <Route path='/weather' element={<Weather />} />
+                <Route path='/search' element={<div>Search</div>} />
+                <Route path='/map' element={<div>Map</div>} />
+                <Route path='/settings' element={<div>Settings</div>} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </LocalizationProvider>
+      </StoreProvider>
+    </SkeletonProvider>
   </ThemeProvider>
 );
 export default App;

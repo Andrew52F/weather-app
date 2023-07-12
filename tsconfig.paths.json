@@ -9,7 +9,10 @@
          "@styles/*" : ["./styles/*"],
          "@types/*" : ["./types/*"],
          "@localization/*" : ["./localization/*"],
-         "@assets/*" : ["./assets/*"]
+         "@assets/*" : ["./assets/*"],
+         "@utils/*" : ["./utils/*"],
+         "@store/*": ["./store/*"],
+         "@hooks/*": ["./hooks/*"]
        }
   }
 }

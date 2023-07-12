@@ -1,0 +1,52 @@
+@import '@styles/index.scss';
+.Location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+.location_name {
+  h2 {
+    font-size: $font-big;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  span {
+    font-size: $font-medium;
+  }
+}
+.info {
+  height: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+.location_temperature {
+  @include theme-aware('color', 'text');
+  font-size: $font-biggest;
+  font-weight: 600;
+
+}
+.forecast_image {
+  width: 150px;
+  height: 150px;
+}
+.location_name_name_skeleton {
+  height: $font-big;
+  width: 250px;
+}
+.location_name_country_skeleton {
+  height: $font-medium;
+  width: 100px;
+}
+.location_temperature_skeleton {
+  height: $font-biggest;
+  width: 150px;
+}
+
+
+
+.forecast_image_skeleton {
+  width: 150px;
+  height: 150px;
+}

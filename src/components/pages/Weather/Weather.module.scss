@@ -1,0 +1,54 @@
+@import '@styles/index.scss';
+.Weather {
+  @include theme-aware('color', 'text');
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 20px;
+  @media screen and ($break-960) {
+    grid-template-columns: 1fr;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+  > div {
+    overflow: scroll;
+    min-width: 0px;
+    min-height: 0px;
+    @media screen and ($break-960) {
+      min-height: auto;
+      overflow:visible;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.padding_x {
+  padding: 0 20px;
+  @media  screen and ($break-960) {
+    padding: 0
+  }
+}
+.small_conditions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.full_conditions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}

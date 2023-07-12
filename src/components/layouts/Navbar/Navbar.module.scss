@@ -1,0 +1,79 @@
+@import '@styles/index.scss';
+
+$icon-width: 40px;
+
+.Navbar {
+  @include theme-aware('background-color', 'foreground');
+  @include theme-aware('color', 'text');
+  height: 100%;
+  min-width: 100px;
+  max-width: 100px;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 60px;
+  align-items: center;
+  // overflow: hidden;
+  overflow-y: scroll;
+
+  #image {
+    width: $icon-width
+  }
+  nav {
+    height: 100%;
+    width: 100%;
+    .nav_list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3vh;
+    }
+
+
+    .nav_item {
+      > a {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        svg {
+          width: $icon-width;
+          :global(.fill) {
+            @include theme-aware('fill', 'text-secondary');
+            transition: fill 0.2s ease ;
+          }
+        }
+         span {
+          font-size: $font-small;
+          @include theme-aware('color', 'text-secondary');
+          transition: color 0.2s ease ;
+        }
+      }
+      > a:global(.active) {
+        :global(.fill) {
+          @include theme-aware('fill', 'text');
+        }
+        span {
+          @include theme-aware('color', 'text');
+        }
+      }
+    }
+  }
+  @media screen and ($break-768) {
+    max-width: 100%;
+    max-height: 90px;
+    padding: 0;
+    flex-direction: row;
+
+    #image {
+      display: none;
+    }
+    nav .nav_list {
+      height: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 0;
+    }
+  }
+}

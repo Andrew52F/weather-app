@@ -1,8 +1,51 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   translation: {
+    headers: {
+      tdf: 'Today`s forecast',
+      '3df': '3 days forecast',
+      air: 'Air conditions',
+    },
+    'week-day': {
+      sun: 'Sunday',
+      mon: 'Monday',
+      tue: 'Tuesday',
+      wen: 'Wensday',
+      thu: 'Thursday',
+      fri: 'Friday',
+      sat: 'Saturday',
+    },
+    today: 'Today',
+    units: {
+      'c-symbol': '°C',
+      'f-symbol': '°F',
+      'kph-symbol': 'km/h',
+      'mph-symbol': 'mph',
+      'km-symbol': 'km',
+      'miles-symbol': 'miles',
+      'mb-symbol': 'mb',
+      'psi-symbol': 'psi',
+    },
+    condition: {
+      'real-temp': 'Real feel',
+      wind: 'Wind',
+      'chance-of-rain': 'Chance of rain',
+      uv: 'UV index',
+      humidity: 'Humidity',
+      visibility: 'Visibility',
+      pressure: 'Pressure',
+      daylight: 'Daylight',
+    },
+    navbar: {
+      weather: 'Weather',
+      search: 'Search',
+      map: 'Map',
+      settings: 'Settings',
+    },
     'weather-app': 'Weather App',
     weather: 'Weather App',
     'get-started': 'Get started',
+    'see-more': 'See more',
+    hide: 'Hide',
   },
 };

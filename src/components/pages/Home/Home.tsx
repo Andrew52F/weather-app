@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import umbrellaImage from '@assets/umbrella.png';
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
       <div className={`${styles.textSelection} ${styles.section}`}>
         <img src={umbrellaImage} id={styles.small_umbrella} alt='umbrella' />
         <div className={styles.heading}>
-          <h1>Breeze</h1>
+          <h1 id={styles.heading_header}>Breeze</h1>
           <span>{t('weather-app')}</span>
         </div>
         <Button

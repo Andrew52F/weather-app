@@ -3,6 +3,24 @@
 .button {
   @include theme-aware('background', 'accent');
   @include theme-aware('color', 'text');
-  padding: 15px 35px;
+  padding: 10px 20px;
   border-radius: 50vh;
+  &.font-small {
+    font-size: $font-small;
+  }
+  &.font-medium {
+    font-size: $font-medium;
+  }
+  &.font-big {
+    font-size: $font-big;
+  }
+  &.padding-small {
+    padding: 5px 10px
+  }
+  &.padding-medium {
+    padding: 10px 20px
+  }
+  &.padding-big {
+    padding: 15px 35px
+  }
 }

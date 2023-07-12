@@ -20,7 +20,7 @@
       "withLazy": false
     },
     "layout": {
-      "path": "src/components/layout",
+      "path": "src/components/layouts",
       "withStyle": true,
       "withTest": false,
       "withStory": false,
